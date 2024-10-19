@@ -17,14 +17,14 @@ public class GymUpdateController {
 
     @GetMapping("/gym_update")
     public String updateGym(Model model) {
-//        var gym = gymService.getGym(79);
-//        model.addAttribute("gym", gym);
+        var gym = gymService.getGym(79);
+        model.addAttribute("gym", gym);
         return "gym_update";
     }
 
     @PostMapping("/gym_update")
     public String updateGym(@ModelAttribute("gym") Gym gym, Model model) {
-//        gymService.update(gym);
+        gymService.update(gym);
         return "gym_update";
     }
 }

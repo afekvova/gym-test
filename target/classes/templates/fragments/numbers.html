@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+  <numbers th:fragment="numbers">
+      <td th:switch="${randomNumber}">
+          <span th:case="'1'"><img th:src="@{/images/1.png}" width="50"/></span>
+          <span th:case="'2'"><img th:src="@{/images/2.png}" width="50"/></span>
+          <span th:case="'3'"><img th:src="@{/images/3.png}" width="50"/></span>
+      </td>
+  </numbers>
+</body>
+</html>

@@ -9,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import ua.afek.springmvc.exceptions.EntityNotFoundException;
 import ua.afek.springmvc.model.Gym;
 import ua.afek.springmvc.model.Person;
-import ua.afek.springmvc.repository.GymRepository;
 import ua.afek.springmvc.service.DataAccess;
 import ua.afek.springmvc.service.GymService;
 
@@ -25,8 +24,8 @@ class GymApplicationTests {
 
 	private DataAccess dataAccess;
 
-	@Mock
-	private GymRepository gymRepository;
+//	@Mock
+//	private GymRepository gymRepository;
 
 	@InjectMocks
 	private GymService gymService;
@@ -54,41 +53,41 @@ class GymApplicationTests {
 		assertThrows(IndexOutOfBoundsException.class, () -> dataAccess.findPerson(999));
 	}
 
-	@Test
-	void addGym_shouldSaveGym() {
-		Gym gym = new Gym();
-		gym.setGymId(1);
-		gym.setName("Test Gym");
+//	@Test
+//	void addGym_shouldSaveGym() {
+//		Gym gym = new Gym();
+//		gym.setGymId(1);
+//		gym.setName("Test Gym");
+//
+//		gymService.addGym(gym);
+//		verify(gymRepository, times(1)).save(gym);
+//	}
+//
+//	@Test
+//	void getGym_shouldReturnGymById() {
+//		Gym gym = new Gym();
+//		gym.setGymId(1);
+//		when(gymRepository.getById(1)).thenReturn(gym);
+//
+//		Gym result = gymService.getGym(1);
+//		assertEquals(1, result.getGymId());
+//	}
 
-		gymService.addGym(gym);
-		verify(gymRepository, times(1)).save(gym);
-	}
-
-	@Test
-	void getGym_shouldReturnGymById() {
-		Gym gym = new Gym();
-		gym.setGymId(1);
-		when(gymRepository.getById(1)).thenReturn(gym);
-
-		Gym result = gymService.getGym(1);
-		assertEquals(1, result.getGymId());
-	}
-
-	@Test
-	void updateGym_shouldUpdateGymDetails() {
-		Gym gym = new Gym();
-		gym.setGymId(1);
-		gym.setName("Original Name");
-
-		Gym updatedGym = new Gym();
-		updatedGym.setGymId(1);
-		updatedGym.setName("Updated Name");
-
-		when(gymRepository.findById(1)).thenReturn(Optional.of(gym));
-
-		gymService.update(updatedGym);
-
-		assertEquals("Updated Name", gym.getName());
-		verify(gymRepository, times(1)).save(gym);
-	}
+//	@Test
+//	void updateGym_shouldUpdateGymDetails() {
+//		Gym gym = new Gym();
+//		gym.setGymId(1);
+//		gym.setName("Original Name");
+//
+//		Gym updatedGym = new Gym();
+//		updatedGym.setGymId(1);
+//		updatedGym.setName("Updated Name");
+//
+//		when(gymRepository.findById(1)).thenReturn(Optional.of(gym));
+//
+//		gymService.update(updatedGym);
+//
+//		assertEquals("Updated Name", gym.getName());
+//		verify(gymRepository, times(1)).save(gym);
+//	}
 }

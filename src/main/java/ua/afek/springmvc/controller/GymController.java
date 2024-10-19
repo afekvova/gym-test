@@ -26,7 +26,7 @@ public class GymController {
 
     @PostMapping("/gym")
     public String formPosted(@ModelAttribute("gym") Gym gym, Model model) {
-        gymService.addGym(gym);
+        // gymService.addGym(gym);
         model.addAttribute("newGymName",  gym.getName());
         return "gym_success";
     }
